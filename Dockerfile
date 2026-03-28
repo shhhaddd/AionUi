@@ -17,6 +17,7 @@ RUN node scripts/build-server.mjs
 
 # ---- Runtime image ----
 FROM oven/bun:latest AS runtime
+RUN apt-get update && apt-get install -y nodejs npm && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
 # Copy only build artifacts and production deps
