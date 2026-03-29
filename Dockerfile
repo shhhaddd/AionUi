@@ -25,7 +25,6 @@ COPY --from=builder /app/dist-server ./dist-server
 COPY --from=builder /app/out/renderer ./out/renderer
 COPY . .
 RUN bun install --ignore-scripts --production
-RUN npm install -g @anthropic-ai/claude-code
 
 ENV PORT=3000
 ENV NODE_ENV=production
